@@ -18,12 +18,15 @@ class CreateCustomersTable extends Migration
             $table->string('name', 200);
             $table->string('surname', 200);
             $table->string('email', 200);
-            $table->enum('document_type', ['CC']);
+            $table->unsignedInteger('document_type_id');
             $table->string('document', 40);
+            $table->string('postal_code', 6);
+            $table->string('phone', 30);
             $table->unsignedInteger('city_id');
             $table->timestamps();
 
             $table->foreign('city_id')->references('id')->on('cities');
+            $table->foreign('document_type_id')->references('id')->on('document_types');
         });
     }
 

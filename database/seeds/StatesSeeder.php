@@ -1,5 +1,7 @@
 <?php
 
+use App\Entities\Country;
+use App\Entities\State;
 use Illuminate\Database\Seeder;
 
 class StatesSeeder extends Seeder
@@ -11,9 +13,9 @@ class StatesSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Entities\State::class)->create([
+        factory(State::class)->create([
             'name' => 'Antioquia',
-            'country_id' => \App\Entities\Country::latest()->first()
+            'country_id' => Country::latest()->first()
         ]);
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Entities\State;
 use Illuminate\Database\Seeder;
 
 class CitiesSeeder extends Seeder
@@ -13,7 +14,7 @@ class CitiesSeeder extends Seeder
     {
         factory(\App\Entities\City::class)->create([
             'name' => 'Medellin',
-            'state_id' => \App\Entities\State::latest()->first()
+            'state_id' => State::latest()->first()
         ]);
     }
 }
